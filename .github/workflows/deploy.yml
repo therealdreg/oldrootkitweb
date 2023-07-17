@@ -1,0 +1,31 @@
+name: deploy
+
+on:
+  workflow_call:
+  
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: create _site
+        run: mkdir _site
+          
+      - name: Download a single artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: my-artifact
+          path: _site/
+          
+      - name: copy file via ssh password
+        uses: appleboy/scp-action@v0.1.4
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          password: ${{ secrets.PASS }}
+          port: ${{ secrets.PORT }}
+          source: "_site"
+          target: ${{ secrets.URLP }}
+          rm: false
+      

@@ -1,0 +1,47 @@
+name: build
+ 
+on:
+  workflow_call:
+    inputs:
+      DEP_ART:
+        required: false
+        default: false
+        type: boolean
+          
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: apt-get update
+      run: sudo apt-get update
+      
+    - name: install dependencies
+      run: sudo apt-get -y install ruby-full build-essential zlib1g-dev zip
+      
+    - name: install jekyll and bundler
+      run: sudo gem install jekyll bundler
+
+    - name: bundle install 
+      run: sudo bundle install
+      
+    - name: jekyll clean
+      run: sudo jekyll clean
+      
+    - name: jekyll build
+      run: sudo jekyll build
+        
+    - name: zip site if needed for release
+      if: inputs.DEP_ART
+      run: sudo mv _site /_site && sudo chmod 775 /_site
+      
+    - name: upload if needed for release
+      if: inputs.DEP_ART
+      uses: actions/upload-artifact@v3
+      with:
+        name: my-artifact
+        path: /_site/
+        if-no-files-found: error 

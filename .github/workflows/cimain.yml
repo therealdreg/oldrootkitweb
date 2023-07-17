@@ -1,0 +1,21 @@
+name: CI for main
+
+on:
+  push:
+    branches: [ "main" ]
+
+concurrency:
+  group: my-concurrency-group
+  cancel-in-progress: True
+  
+jobs:
+  build:
+    uses: therealdreg/rootkitsite/.github/workflows/build.yml@main
+    with:
+      DEP_ART: true
+      
+  deploy:
+    needs:
+      - build
+    uses: therealdreg/rootkitsite/.github/workflows/deploy.yml@main
+    secrets: inherit

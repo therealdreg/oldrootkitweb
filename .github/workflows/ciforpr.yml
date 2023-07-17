@@ -1,0 +1,11 @@
+name: CI PR
+
+on:
+  workflow_dispatch: 
+  pull_request:
+    branches: [ "main" ]
+    types: [opened, edited]
+
+jobs:
+  build:
+    uses: therealdreg/rootkitsite/.github/workflows/build.yml@main
