@@ -1346,13 +1346,13 @@ Example of how to use USB SWITCH
 
 AES encrypted RF chat between rpk2 board & feather 32u4 
 
-By [Jusepe @itasahobby https://github.com/itasahobby/winbond_flash_driver]{:target="_blank"}
+By [Jusepe @itasahobby](https://github.com/itasahobby){:target="_blank"}
 
 ### leowinbondflashdriver
 
 A generic driver + sample of usage for W25Q512JV flash memory over SPI using ATmega32u4
 
-By [Jusepe @itasahobby https://github.com/itasahobby/winbond_flash_driver]{:target="_blank"}
+By [Jusepe @itasahobby](https://github.com/itasahobby){:target="_blank"} [winbond_flash_driver](https://github.com/itasahobby/winbond_flash_driver){:target="_blank"}
 
 ### adafruit_feather_32u4 demos
 
@@ -1362,7 +1362,7 @@ Demos for Adafruit Feather 32u4 using RFM69HCW 433MHz module as a sender or reci
 
 AES encrypted RF chat between rpk2 board & feather 32u4 
 
-By [Jusepe @itasahobby https://github.com/itasahobby/winbond_flash_driver]{:target="_blank"}
+By [Jusepe @itasahobby](https://github.com/itasahobby){:target="_blank"}
 
 ### evilmass
 
