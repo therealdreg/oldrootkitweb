@@ -101,7 +101,7 @@ mermaid:
 heading_anchors: true
 
 # Aux links for the upper right navigation
-#aux_links:
+aux_links:
 #  "buzzpirat":
 #    - "https://buzzpirat.com/"
 
